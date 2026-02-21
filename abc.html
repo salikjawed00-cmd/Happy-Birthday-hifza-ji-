@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise for Hifza Ji ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+html, body{
+    margin:0;
+    padding:0;
+    height:100%;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ================= INTRO PAGE ================= */
+#introPage{
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffdee9,#b5fffc);
+    position:relative;
+}
+
+.questionBox{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding:40px 30px;
+    border-radius:25px;
+    max-width:500px;
+    width:90%;
+    text-align:center;
+    color:white;
+    box-shadow:0 15px 35px rgba(0,0,0,0.1);
+}
+
+.questionBox h2{
+    font-family:'Dancing Script',cursive;
+    font-size:36px;
+    color:#ff69b4;
+    margin-bottom:25px;
+}
+
+.questionBox button{
+    padding:12px 30px;
+    margin:10px;
+    border:none;
+    border-radius:25px;
+    font-size:20px;
+    cursor:pointer;
+    font-family:'Great Vibes',cursive;
+    background:#ff4d6d;
+    color:white;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* ================= CANDLES PAGE ================= */
+#candlesPage{
+    display:none;
+    height:100%;
+    width:100%;
+    background:linear-gradient(135deg,#ffb6c1,#ffc0cb);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#7a1f3d;
+    position:relative;
+}
+
+#candlesPage h1{
+    font-family:'Dancing Script',cursive;
+    font-size:48px;
+    margin-bottom:40px;
+}
+
+.candleContainer{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    max-width:900px;
+    gap:25px;
+}
+
+.candle{
+    width:35px;       
+    height:150px;     
+    border-radius:8px;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    position:relative;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Wick */
+.candle::after{
+    content:"";
+    position:absolute;
+    top:-10px;
+    left:50%;
+    transform:translateX(-50%);
+    width:4px;
+    height:10px;
+    background:#333; 
+    border-radius:2px;
+}
+
+.candle span{
+    position:absolute;
+    bottom:-25px;
+    font-size:18px;
+    font-family:'Great Vibes',cursive;
+    color:black;
+}
+
+/* Flame */
+.flame{
+    width:12px;
+    height:20px;
+    background: radial-gradient(circle at 50% 50%, #FFD700 0%, #FF8C00 70%);
+    border-radius:50% 50% 50% 50%;
+    position:absolute;
+    top:-20px;
+    left:50%;
+    transform:translateX(-50%) rotate(-20deg);
+    animation:flicker 0.3s infinite alternate;
+    filter: drop-shadow(0 0 12px #FFD700);
+}
+
+/* Smoke after blowing flame */
+.smoke{
+    width:10px;
+    height:30px;
+    position:absolute;
+    top:-40px;
+    left:50%;
+    transform:translateX(-50%);
+    background: radial-gradient(circle, rgba(220,220,220,0.8) 0%, rgba(220,220,220,0) 80%);
+    border-radius:50%;
+    opacity:0;
+    animation:smokeRise 2s infinite;
+}
+
+@keyframes smokeRise{
+    0% { transform: translateX(-50%) translateY(0) rotate(0deg); opacity:0.8; }
+    30% { transform: translateX(-50%) translateY(-15px) rotate(5deg); opacity:0.6; }
+    60% { transform: translateX(-50%) translateY(-30px) rotate(-5deg); opacity:0.4; }
+    100% { transform: translateX(-50%) translateY(-50px) rotate(10deg); opacity:0; }
+}
+
+@keyframes flicker{
+    0%{ transform: translateX(-50%) rotate(-20deg) scale(1);}
+    50%{ transform: translateX(-50%) rotate(-20deg) scale(1.2);}
+    100%{ transform: translateX(-50%) rotate(-20deg) scale(0.9);}
+}
+
+/* ================= FIRST PAGE ================= */
+#firstPage{
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(135deg,#ffb6c1,#ffc0cb);
+    text-align:center;
+    color:#7a1f3d;
+    position:relative;
+    overflow:hidden;
+}
+
+#firstPage h1{
+    font-family:'Dancing Script',cursive;
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+#firstPage p{
+    max-width:500px;
+    margin:0 20px 25px;
+}
+
+button.surpriseBtn{
+    padding:15px 45px;
+    border:none;
+    border-radius:40px;
+    background:#ff4d6d;
+    color:white;
+    font-size:26px;
+    font-family:'Great Vibes',cursive;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    position:relative;
+    z-index:1;
+    overflow:hidden;
+}
+
+/* Floating hearts first page */
+.heart{
+    position:absolute;
+    opacity:0.5;
+    animation:drift 6s ease-in-out infinite alternate;
+}
+
+@keyframes drift{
+    0%{ transform:translate(0,0); }
+    100%{ transform:translate(20px,-15px); }
+}
+
+/* ================= SECOND PAGE ================= */
+#secondPage{
+    display:none;
+    height:100%;
+    width:100%;
+    padding:20px;
+    box-sizing:border-box;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#8f94fb,#b8b9ff);
+    position:relative;
+    overflow:hidden; 
+}
+
+.messageCard{
+    position:relative; 
+    background: rgba(255,255,255,0.05);  
+    backdrop-filter: blur(10px);        
+    padding:40px 30px;
+    border-radius:25px;
+    width:100%;
+    max-width:700px;
+    text-align:center;
+    color:white;
+    box-shadow:0 15px 35px rgba(0,0,0,0.1); 
+    animation:fadeIn 1s ease forwards;
+    z-index:2; 
+    overflow:hidden; 
+    max-height:80%; 
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.messageCard h2{
+    font-family:'Dancing Script',cursive;
+    font-size:42px;
+    margin-bottom:25px;
+}
+
+.messageCard p{
+    font-size:16px;
+    line-height:1.8;
+    opacity:0.95;
+}
+
+.bottomWish{
+    margin-top:20px;
+    font-family:'Great Vibes',cursive;
+    font-size:22px;
+    color:#ffd700;
+}
+
+/* Floating hearts second page */
+.floatingHeart{
+    position:absolute;
+    opacity:0.5;
+    animation:softFloat 7s ease-in-out infinite alternate;
+    z-index:1; 
+}
+
+@keyframes softFloat{
+    0%{ transform:translate(0,0); }
+    100%{ transform:translate(15px,-10px); }
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+<body>
+
+<!-- INTRO PAGE -->
+<div id="introPage">
+    <div class="questionBox">
+        <h2>Kya aap hi meri pyari maalkin ho 👉👈</h2>
+        <button id="yesBtn">Ji bilkul mai hi aapki maalkin hu 🤭</button>
+        <button id="noBtn">Naaa bilkul nhi 🤪</button>
+    </div>
+</div>
+
+<!-- CANDLES PAGE -->
+<div id="candlesPage">
+    <h1>Happy 17th Birthday Hifza Ji 🎂</h1>
+    <div class="candleContainer" id="candleContainer"></div>
+</div>
+
+<!-- FIRST PAGE -->
+<div id="firstPage">
+    <h1>Happy Birthday, Hifza Ji ❤️</h1>
+    <p>Today is all about celebrating you and the joy you bring into life ✨<br>May your 17th birthday be as beautiful and special as you are 🌸</p>
+    <button id="surpriseBtn" class="surpriseBtn">Maalkin Is Button Ko Tod Daaliye Fod Daaliye 👊💜</button>
+</div>
+
+<!-- SECOND PAGE -->
+<div id="secondPage">
+    <div class="messageCard">
+        <h2>A Special Message for You</h2>
+        <p>
+            On this special day, I want you to know how grateful I am to have you in my life.
+            Your laughter fills my days with joy, your love gives me strength, and your
+            presence makes everything better.
+            <br><br>
+            Today, we celebrate you — your kindness, your beauty, your amazing spirit,
+            and all the wonderful things that make you uniquely you.
+            <br><br>
+            I love you meri pyari maalkin 🤗
+        </p>
+        <div class="bottomWish">
+            Happy Birthday my love! Here’s to many more years of laughter,
+            love and beautiful memories together ❤️
+        </div>
+    </div>
+</div>
+
+<script>
+
+// INTRO PAGE
+document.getElementById("yesBtn").addEventListener("click", function(){
+    document.getElementById("introPage").style.display="none";
+    document.getElementById("candlesPage").style.display="flex";
+});
+
+document.getElementById("noBtn").addEventListener("click", function(){
+    document.getElementById("introPage").innerHTML=
+    "<h1 style='color:white; font-family:Dancing Script, cursive; text-align:center;'>hmm hmm koi baat nhi phir aapke liye nhi hai ye surprise 😅</h1>";
+});
+
+
+// ================= POPUP FUNCTIONS =================
+function showPopup(message){
+    document.getElementById("popupText").innerText = message;
+    document.getElementById("messagePopup").style.display = "flex";
+}
+
+function closePopup(){
+    document.getElementById("messagePopup").style.display = "none";
+}
+
+
+// ================= CANDLES =================
+let colors = ["#FF4D6D","#FFB347","#FFD700","#FF69B4","#8A2BE2","#00CED1","#32CD32","#FF4500","#FF1493","#00FA9A","#1E90FF","#FF6347","#FF00FF","#ADFF2F","#FF8C00","#FF69B4","#BA55D3"];
+
+let messages = [
+"Happy 17th Birthday meri pyari maalkin ❤️🎉",
+"Aaj ke din sirf aapki shine ka celebration hai ✨",
+"Hamesha khush raho aap maalkin aur apne saare sapne poore karo 🌸",
+"Aap meri life ki sabse beautiful part ho madam ji❤️",
+"Khud pe yakeen rakhiye bachuu, aap amazing ho 💫",
+"Har moment aapke saath special lagta hai 🥰",
+"Aapki har wish poori ho aur aapki smile humesha glow kare bachaaa 😇",
+"Aap meri favorite person ho 😘",
+"Aap to meri pyari si cutuu si lallantap mohtarmaa ji ho ji 🫣",
+"Aapka pyar aur support priceless hai bachaa💕💎",
+"Aapke saath moments hamesha unforgettable hote hain 📸💖",
+"Aapki presence se boring days bhi magical lagte hain ✨💫",
+"Aapki cuteness ka level +9999 hai 😍🔥",
+"Aapki chhoti chhoti baatein bhi dil ko khushi de jaati hain 🥰",
+"Aap meri life ki favorite chapter ho madam ji 📖💖",
+"Inshallah maalkin hum log humesha aapke birthday pe ek saath rahenge ji 🤗",
+"Once again happy birthday bachaaa 🤗"
+];
+
+let candleContainer = document.getElementById("candleContainer");
+let blownCount = 0;
+
+for(let i=0;i<17;i++){
+
+    let candle = document.createElement("div");
+    candle.classList.add("candle");
+    candle.style.backgroundColor = colors[i];
+
+    let number = document.createElement("span");
+    number.innerText = i+1;
+    candle.appendChild(number);
+
+    let flame = document.createElement("div");
+    flame.classList.add("flame");
+    candle.appendChild(flame);
+
+    candle.addEventListener("click", function(){
+
+        if(!flame.classList.contains("blown")){
+
+            flame.classList.add("blown");
+            flame.style.display = "none";
+
+            // Smoke effect
+            for(let j=0;j<6;j++){
+                let smokeDiv = document.createElement("div");
+                smokeDiv.classList.add("smoke");
+                smokeDiv.style.animationDelay = j*0.2+"s";
+                candle.appendChild(smokeDiv);
+            }
+
+            blownCount++;
+
+            // ✅ MESSAGE SHOW
+            showPopup(messages[i]);
+
+            if(blownCount === 17){
+                setTimeout(()=>{
+                    document.getElementById("candlesPage").style.display="none";
+                    document.getElementById("firstPage").style.display="flex";
+                },1000);
+            }
+        }
+    });
+
+    candleContainer.appendChild(candle);
+}
+
+
+// ================= FIRST PAGE HEARTS =================
+for(let i=0;i<25;i++){
+    let heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.top=Math.random()*100+"vh";
+    heart.style.fontSize=(Math.random()*12+14)+"px";
+    document.getElementById("firstPage").appendChild(heart);
+}
+
+
+// ================= SECOND PAGE HEARTS =================
+for(let i=0;i<35;i++){
+    let heart=document.createElement("div");
+    heart.classList.add("floatingHeart");
+    heart.innerHTML="💜";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.top=Math.random()*100+"vh";
+    heart.style.fontSize=(Math.random()*10+14)+"px";
+    document.getElementById("secondPage").appendChild(heart);
+}
+// ================= BUTTON BREAK EFFECT =================
+document.getElementById("surpriseBtn").addEventListener("click", function(){
+
+    let btn = this;
+    let rect = btn.getBoundingClientRect();
+    let text = btn.innerText;
+
+    btn.style.transition="transform 0.25s";
+    btn.style.transform="translate(-30px,15px) rotate(-5deg)";
+
+    setTimeout(()=>{
+        btn.style.transform="translate(30px,15px) rotate(5deg)";
+    },250);
+
+    setTimeout(()=>{
+
+        btn.style.display="none";
+
+        for(let i=0;i<text.length;i++){
+            let piece=document.createElement("div");
+            piece.innerText=text[i];
+
+            piece.style.position="absolute";
+            piece.style.left=rect.left + i*16 + "px";
+            piece.style.top=rect.top + "px";
+            piece.style.color="white";
+            piece.style.fontSize="22px";
+            piece.style.fontFamily="Great Vibes, cursive";
+            piece.style.pointerEvents="none";
+
+            document.body.appendChild(piece);
+
+            let randX = (Math.random()*100-50);
+            let randR = (Math.random()*90-45);
+
+            piece.animate([
+                { transform: "translate(0,0) rotate(0deg)", opacity:1 },
+                { transform: `translate(${randX}px,100px) rotate(${randR}deg)`, opacity:0 }
+            ],{
+                duration:1000,
+                fill:"forwards"
+            });
+        }
+
+        setTimeout(()=>{
+            document.getElementById("firstPage").style.display="none";
+            document.getElementById("secondPage").style.display="flex";
+        },600);
+
+    },550);
+});
+</script>
+    <!-- Custom Popup -->
+<div id="messagePopup" style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+">
+
+  <div style="
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(15px);
+  padding:30px;
+  border-radius:20px;
+  width:85%;
+  max-width:400px;
+  text-align:center;
+  color:white;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+  animation:popIn 0.3s ease;
+  ">
+    <h2>💌 Special Message</h2>
+    <p id="popupText"></p>
+    <button onclick="closePopup()" style="
+    margin-top:20px;
+    padding:10px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ff4d6d;
+    color:white;
+    cursor:pointer;
+    ">Awwww🤭</button>
+  </div>
+
+</div>
+</body>
+</html>
